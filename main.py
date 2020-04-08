@@ -16,7 +16,7 @@ xval2 = []
 yval2 = []
 xval = []
 yval = []
-p = [0.0]
+p = 0
 
 def graph_display():
     ax1.set_title('График пройденного расстояния от времени')
@@ -38,9 +38,9 @@ def refresh(i):
             t += i
     if t == '':
         return
-    xval.append(p[0])
+    xval.append(p)
     yval.append(int(t))
-    p[0] += 0.3
+    p += 1
     ax1.clear()
     ax1.plot(xval2, yval2)
     ax1.plot(xval, yval)
@@ -62,7 +62,7 @@ def uneven_test():
             yval2.append(int(y))
     ax1.plot(xval2, yval2)
     graph_display()
-    ani = animation.FuncAnimation(fig, refresh, interval=300)
+    ani = animation.FuncAnimation(fig, refresh, interval=1000)
     plt.show()
 
 def even_test():
@@ -80,11 +80,11 @@ def even_test():
             yval2.append(int(y))
     ax1.plot(xval2, yval2)
     graph_display()
-    ani = animation.FuncAnimation(fig, refresh, interval=300)
+    ani = animation.FuncAnimation(fig, refresh, interval=1000)
     plt.show()
 
 def only_one():
-    ani = animation.FuncAnimation(fig, refresh, interval=300)
+    ani = animation.FuncAnimation(fig, refresh, interval=1000)
     plt.show()
     
 def main():
